@@ -1,33 +1,31 @@
 import React, { useState } from 'react';
 import { account } from '../appwrite/appwriteConfig';
-import { databases, databaseId, collectionId } from '../appwrite/databases';
+import { databases, databaseId, collectionId, reportId } from '../appwrite/databases';
 import { ID } from 'appwrite';
+import AuthService from '../appwrite/auth';
 
 function Signup() {
     const [username, setUsername] = useState('');
     const [Email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [phone, setPhone] = useState('');
     const [error, setError] = useState(null);
 
     const handleSignup = async (e) => {
         e.preventDefault();
 
         try {
-            const id = ID.unique();
-            // Step 1: Create a new user account
-            const response = await account.create(id, Email, password, username);
-            // const Email = response.email;
-            // const username = response.name;
-            // Step 2: After successful account creation, create a document in your user profile collection
+            const response = await AuthService.signup(Email, password, username);
+            console.log(response);
             await databases.createDocument(
-                databaseId, 
+                databaseId,
                 collectionId, 
                 response.$id, 
-                { Email, username, password }
+                { Email, username, password, phone }
             );
 
             // Step 3: Redirect to the log-in page
-            window.location.href = '/Userlogin';
+            window.location.href = '/login';
         } catch (err) {
             setError(err.message);
         }
@@ -49,6 +47,15 @@ function Signup() {
                     value={Email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
+                    required
+                />
+                <input
+                    type="number"
+                    value={phone}
+                    onChange={(e) => {setPhone(e.target.value);
+                        console.log(e.target.value);
+                    }}
+                    placeholder="Mobile"
                     required
                 />
                 <input

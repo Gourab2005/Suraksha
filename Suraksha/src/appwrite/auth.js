@@ -1,7 +1,6 @@
 import { Account } from 'appwrite';
-import AppwriteService from './appwriteConfig';
-
-const account = new Account(AppwriteService.client);
+import {account} from './appwriteConfig';
+import { ID } from 'appwrite';
 
 const AuthService = {
   login: async (email, password) => {
@@ -13,12 +12,13 @@ const AuthService = {
     }
   },
 
-  signup: async (email, password, name) => {
+  signup: async (email, password, username) => {
     try {
-      const response = await account.create('unique()', email, password, name);
+      const response = await account.create(ID.unique(), email, password, username);
+      console.log(response);
       return response;
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   },
 
