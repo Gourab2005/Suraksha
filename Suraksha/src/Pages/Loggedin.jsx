@@ -3,6 +3,7 @@ import { account } from "../appwrite/appwriteConfig";
 import DatabaseService from "../appwrite/databases1";
 import { databaseId, reportId } from "../appwrite/databases";
 import { ID } from "appwrite";
+import MapComponent from "../Components/MapComponent";
 
 function LoggedInPage() {
   const [problems, setProblems] = useState([]);
@@ -10,22 +11,28 @@ function LoggedInPage() {
   const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [error, setError] = useState(null);
   const [myProblems, setMyProblems] = useState([]);
+  const [count, setCount] = useState(0);
+  const [recentLoc, setRecentLoc] = useState(null);
 
   useEffect(() => {
     const fetchUserAndProblems = async () => {
       try {
-        // Fetch the user
         const userResponse = await account.get();
         setUser(userResponse);
 
-        // Fetch problems after getting the user
         const problemsResponse = await DatabaseService.listDocuments(
           databaseId,
           reportId
         );
         setProblems(problemsResponse.documents);
 
-        // Filter the user's own problems
+        if (count < problemsResponse.documents.length) {
+          const location = problemsResponse.documents[problemsResponse.documents.length - 1].Location;
+          setRecentLoc(location);
+          console.log(location);
+          setCount(problemsResponse.documents.length);
+        }
+
         const userProblems = problemsResponse.documents.filter(
           (problem) =>
             problem.username === userResponse.name &&
@@ -39,46 +46,19 @@ function LoggedInPage() {
 
     fetchUserAndProblems();
 
-    // Set up an interval to refresh the data every 5 seconds
     const intervalId = setInterval(fetchUserAndProblems, 5000);
 
-    // Cleanup the interval on component unmount
     return () => clearInterval(intervalId);
-  }, []);
-
-  const getLocation = () => {
-    return new Promise((resolve, reject) => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            setLocation({
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
-            });
-            setError(null); // Clear any previous errors
-            resolve(position); // Resolve the promise with the position data
-          },
-          (err) => {
-            setError(err.message);
-            reject(err); // Reject the promise if there's an error
-          }
-        );
-      } else {
-        const errorMessage = "Geolocation is not supported by this browser.";
-        setError(errorMessage);
-        reject(new Error(errorMessage));
-      }
-    });
-  };
+  }, [count]);
 
   const handleClick = async (e) => {
     e.preventDefault();
 
     try {
-      const position = await getLocation(); // Wait for the location to be fetched
+      const position = await getLocation(); 
       const email = user.email;
       const username = user.name;
-      const phone = 8116693879; // Example phone number, consider making this dynamic
+      const phone = 8116693879;
       const loc = `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`;
       const problem = "EMERGENCY";
 
@@ -94,6 +74,31 @@ function LoggedInPage() {
     } catch (err) {
       console.error("Error creating document:", err);
     }
+  };
+
+  const getLocation = () => {
+    return new Promise((resolve, reject) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            setLocation({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+            });
+            setError(null); 
+            resolve(position);
+          },
+          (err) => {
+            setError(err.message);
+            reject(err);
+          }
+        );
+      } else {
+        const errorMessage = "Geolocation is not supported by this browser.";
+        setError(errorMessage);
+        reject(new Error(errorMessage));
+      }
+    });
   };
 
   if (!user) {
@@ -170,6 +175,11 @@ function LoggedInPage() {
           </tbody>
         </table>
       </div>
+      {recentLoc && (
+        <div style={{display: "flex", justifyContent: "center"}}>
+          <MapComponent mapLink={recentLoc} />
+        </div>
+      )}
     </div>
   );
 }
