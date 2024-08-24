@@ -7,12 +7,10 @@ body {
 }
 
 .navbar {
-    background-color: #fe2200;
+    background-color: #843720;
     padding: 10px;
     color: white;
     text-align: center;
-    position: fixed;
-    width: 100%;
     top: 0;
     z-index: 1000;
 }
@@ -47,7 +45,7 @@ body {
 
 .container {
     width: 90%;
-    margin: 80px auto 20px; /* Added margin-top for navbar space */
+    margin: 80px auto 20px; 
 }
 
 h2 {
@@ -119,8 +117,6 @@ p.error {
     color: #fe2200;
     text-align: center;
 }
-
-/* Responsive Design */
 
 @media (max-width: 768px) {
     .navbar ul {

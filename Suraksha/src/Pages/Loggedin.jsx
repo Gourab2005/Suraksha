@@ -15,18 +15,16 @@ function LoggedInPage() {
   useEffect(() => {
     const fetchUserAndProblems = async () => {
       try {
-        // Fetch the user
+  
         const userResponse = await account.get();
         setUser(userResponse);
 
-        // Fetch problems after getting the user
         const problemsResponse = await DatabaseService.listDocuments(
           databaseId,
           reportId
         );
         setProblems(problemsResponse.documents);
 
-        // Filter the user's own problems
         const userProblems = problemsResponse.documents.filter(
           (problem) =>
             problem.username === userResponse.name &&
@@ -40,10 +38,8 @@ function LoggedInPage() {
 
     fetchUserAndProblems();
 
-    // Set up an interval to refresh the data every 5 seconds
     const intervalId = setInterval(fetchUserAndProblems, 5000);
 
-    // Cleanup the interval on component unmount
     return () => clearInterval(intervalId);
   }, []);
 
@@ -56,12 +52,12 @@ function LoggedInPage() {
               latitude: position.coords.latitude,
               longitude: position.coords.longitude,
             });
-            setError(null); // Clear any previous errors
-            resolve(position); // Resolve the promise with the position data
+            setError(null); 
+            resolve(position); 
           },
           (err) => {
             setError(err.message);
-            reject(err); // Reject the promise if there's an error
+            reject(err); 
           }
         );
       } else {
@@ -76,10 +72,10 @@ function LoggedInPage() {
     e.preventDefault();
 
     try {
-      const position = await getLocation(); // Wait for the location to be fetched
+      const position = await getLocation(); 
       const email = user.email;
       const username = user.name;
-      const phone = 8116693879; // Example phone number, consider making this dynamic
+      const phone = 8116693879;
       const loc = `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`;
       const problem = "EMERGENCY";
 

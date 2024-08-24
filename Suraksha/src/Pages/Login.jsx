@@ -16,8 +16,8 @@ function Login() {
         email,
         password
       );
-      console.log(response); // You can handle the response as needed
-      window.location.href = '/loggedin'; // Redirect to logged-in page
+      console.log(response); 
+      window.location.href = '/loggedin'; 
     } catch (err) {
       setError(err.message);
     }

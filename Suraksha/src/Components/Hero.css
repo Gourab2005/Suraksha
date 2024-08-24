@@ -70,11 +70,7 @@
 }
 
 .Hero .btn:hover {
-<<<<<<< HEAD
-    background-color: #47d6c5;
-=======
     background-color: #ae1902;
->>>>>>> a0cb9e7e308b788faff5da16db41d7a288f81db4
 }
 
 @media (max-width: 768px) {

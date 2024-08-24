@@ -25,7 +25,6 @@ function AdminDashboard() {
                 console.log(count);
                 if (notificationsEnabled && response.total > count) {
                     
-                    //alert("Audio Played");
                     audioObj.play()
                         .then(() => {
                             console.log("Audio played");
@@ -40,22 +39,18 @@ function AdminDashboard() {
             }
         };
 
-        // Initial fetch
         fetchProblems();
-
-        // Set interval to fetch data every 5 seconds
+        
         const intervalId = setInterval(fetchProblems, 5000);
 
-        // Cleanup interval on component unmount
         return () => clearInterval(intervalId);
     }, [notificationsEnabled, count]);
 
     const handleTakeAction = async (id) => {
         try {
-            // Update the document in the database
+            
             await DatabaseService.updateDocument('66c3957e003ad6cb5a44', '66c49e670031a6eb40b9', id, { Status: 'taken' });
 
-            // Update the local state to reflect the change
             setProblems(problems.map(problem => 
                 problem.$id === id ? { ...problem, Status: 'taken' } : problem
             ));
