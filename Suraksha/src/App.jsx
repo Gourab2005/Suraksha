@@ -4,6 +4,7 @@ import Home from './Pages/Home'
 import Loggedin from './Pages/Loggedin'
 import Admindashboard from './Pages/Admindashboard'
 import Login from './Pages/Login'
+import Signup from './Pages/signup'
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -12,7 +13,11 @@ const App = () => {
     },
     {
       path: "/login",
-      element:<><Home/><Login/></>,
+      element:<Login/>,
+    },
+    {
+      path: "/signup",
+      element:<Signup/>,
     },
     {
       path: "/loggedin",
