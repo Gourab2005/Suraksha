@@ -1,50 +1,54 @@
 .header {
     font-family: "Akaya Kanadaka", system-ui;
-    padding: 2rem 9%;
+    padding: 1.5rem 5%;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 1rem 1.5rem rgba(63, 61, 65, 0.304);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(71, 2, 105);
+    background-color: #4A0072; /* Slightly softer purple */
 }
 
 .header .logo {
-    color: white;
-    font-size: 2.5rem;
+    color: #FFF; /* Bright white for better contrast */
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .header .navbar a {
-    font-size: 1.7rem;
-    color: white;
-    margin-left: 2.5rem;
+    font-size: 1.2rem; /* Reduced font size */
+    color: #FFF;
+    margin-left: 2rem;
+    transition: color 0.3s ease-in-out;
 }
 
 .header .navbar a:hover {
-    color: rgb(219, 222, 222);
+    color: #B2FF59; /* Light green accent on hover */
 }
 
 #menu-btn {
-    font-size: 2.5rem;
-    border-radius: .5rem;
-    background: #f6f4f4;
-    color: var(--blue);
-    padding: 1rem 1.5rem;
+    font-size: 2.2rem; /* Slightly reduced button size */
+    border-radius: 0.5rem;
+    background: #FFF;
+    color: #4A0072;
+    padding: 0.8rem 1.2rem;
     cursor: pointer;
     display: none;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-@media(max-width:991px) {
+@media(max-width: 991px) {
     html {
-        font-size: 55%;
+        font-size: 85%; /* Adjusted base font size for better scaling */
     }
 
     .header {
-        padding: 2rem;
+        padding: 1.5rem 3%;
     }
 
     .section {
@@ -52,44 +56,57 @@
     }
 }
 
-@media(max-width:768px) {
+@media(max-width: 768px) {
     #menu-btn {
         display: initial;
     }
 
     .header .navbar {
         position: absolute;
-        top: 115%;
+        top: 100%;
         right: 2rem;
-        border-radius: .5rem;
-        width: 30rem;
-        border: var(--border);
-        background: rgb(111, 22, 155);
+        border-radius: 0.5rem;
+        width: 25rem;
+        border: none;
+        background: #6A1B9A; /* Deep purple background */
         transform: scale(0);
         opacity: 0;
         transform-origin: top right;
-        transition: none;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
     .header .navbar.active {
         transform: scale(1);
         opacity: 1;
-        transition: .4s ease-out;
     }
 
     .header .navbar a {
-        font-size: 2rem;
+        font-size: 1.4rem; /* Reduced font size for mobile view */
         display: block;
-        margin: 2.5rem;
+        margin: 1.5rem;
+        color: #FFF;
     }
 }
 
-@media(max-width:450px) {
+@media(max-width: 450px) {
     html {
-        font-size: 50%;
+        font-size: 75%; /* Further reduced base font size */
     }
 
     .header {
-        padding: 2rem;
+        padding: 1.5rem;
+    }
+
+    .header .logo {
+        font-size: 1.6rem; /* Reduced logo font size */
+    }
+
+    .header .navbar a {
+        font-size: 1.3rem; /* Smaller font size for smallest screens */
+        margin: 1rem;
+    }
+
+    #menu-btn {
+        font-size: 1.8rem; /* Smaller menu button size */
     }
 }
