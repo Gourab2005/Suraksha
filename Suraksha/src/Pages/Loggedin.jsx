@@ -132,10 +132,10 @@ function LoggedInPage() {
             {problems.map((problem, index) => (
               <tr key={problem.$id}>
                 <td>{index + 1}</td>
-                <td>{problem.username}</td>
-                <td>{problem.Email}</td>
+                <td>Anonymous</td>
+                <td>XXXXXXXX</td>
                 <td>{problem.phone}</td>
-                <td>{problem.Location}</td>
+                <td><a href={problem.Location} target="_blank"><button>See Location</button></a></td>
                 <td>{problem.Type}</td>
                 <td>{problem.Problem}</td>
                 <td>{problem.Status}</td>
@@ -166,7 +166,7 @@ function LoggedInPage() {
                 <td>{myProblem.username}</td>
                 <td>{myProblem.Email}</td>
                 <td>{myProblem.phone}</td>
-                <td>{myProblem.Location}</td>
+                <td><a href={myProblem.Location}><button>See Your Location</button></a></td>
                 <td>{myProblem.Type}</td>
                 <td>{myProblem.Problem}</td>
                 <td>{myProblem.Status}</td>

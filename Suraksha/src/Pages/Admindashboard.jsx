@@ -88,7 +88,7 @@ function AdminDashboard() {
                             <td>{problem.username}</td>
                             <td>{problem.Email}</td>
                             <td>{problem.phone}</td>
-                            <td>{problem.Location}</td>
+                            <td><a href={problem.Location}><button>See Location</button></a></td>
                             <td>{problem.Type}</td>
                             <td>{problem.Problem}</td>
                             <td>{problem.Status}</td>
