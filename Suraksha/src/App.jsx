@@ -12,15 +12,15 @@ const App = () => {
     },
     {
       path: "/login",
-      element:<><Home/><Login/></>,
+      element:<Login/>,
     },
     {
       path: "/loggedin",
-      element:<><Home/><Loggedin/></>,
+      element:<Loggedin/>,
     },
     {
       path: "/admindashboard",
-      element:<><Home/><Admindashboard/></>,
+      element:<Admindashboard/>,
     },
   ]);
   return (
