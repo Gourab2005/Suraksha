@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { account } from "../appwrite/appwriteConfig";
+import styles from "./Login.module.css"; 
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -14,7 +15,6 @@ function Login() {
         await account.deleteSessions();
       }
       
-    //   console.log("Previous session deleted");
       const response = await account.createEmailPasswordSession(
         email,
         password
@@ -27,15 +27,16 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+    <div className={styles.container}>
+      <h2 className={styles.heading}>Login</h2>
+      <form onSubmit={handleLogin} className={styles.form}>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           required
+          className={styles.input}
         />
         <input
           type="password"
@@ -43,10 +44,11 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           required
+          className={styles.input}
         />
-        <button type="submit">Login</button>
+        <button type="submit" className={styles.button}>Login</button>
       </form>
-      {error && <p>Error: {error}</p>}
+      {error && <p className={styles.error}>Error: {error}</p>}
     </div>
   );
 }

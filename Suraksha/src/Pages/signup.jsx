@@ -3,6 +3,7 @@ import { account } from '../appwrite/appwriteConfig';
 import { databases, databaseId, collectionId, reportId } from '../appwrite/databases';
 import { ID } from 'appwrite';
 import AuthService from '../appwrite/auth';
+import styles from "./Signup.module.css"; // Correctly import CSS module
 
 function Signup() {
     const [username, setUsername] = useState('');
@@ -31,15 +32,16 @@ function Signup() {
     };
 
     return (
-        <div>
-            <h2>Signup</h2>
-            <form onSubmit={handleSignup}>
+        <div className={styles.container}>
+            <h2 className={styles.heading}>Signup</h2>
+            <form onSubmit={handleSignup} className={styles.form}>
                 <input
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="Username"
                     required
+                    className={styles.input}
                 />
                 <input
                     type="email"
@@ -47,6 +49,7 @@ function Signup() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                     required
+                    className={styles.input}
                 />
                 <input
                     type="number"
@@ -56,6 +59,7 @@ function Signup() {
                     }}
                     placeholder="Mobile"
                     required
+                    className={styles.input}
                 />
                 <input
                     type="password"
@@ -63,10 +67,11 @@ function Signup() {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                     required
+                    className={styles.input}
                 />
-                <button type="submit">Signup</button>
+                <button type="submit" className={styles.button}>Signup</button>
             </form>
-            {error && <p>Error: {error}</p>}
+            {error && <p className={styles.error}>Error: {error}</p>}
         </div>
     );
 }
