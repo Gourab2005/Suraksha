@@ -11,7 +11,9 @@ function Login() {
     e.preventDefault();
 
     try {
-      if(account.get()){
+      const session = await account.get().catch(() => null);
+
+      if (session) {
         await account.deleteSessions();
       }
       

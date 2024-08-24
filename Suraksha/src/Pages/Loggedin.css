@@ -1,7 +1,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f8f4ec;
     margin: 0;
     padding: 0;
 }
@@ -105,7 +105,7 @@ button:hover {
 }
 
 .data-table tbody tr:hover {
-    background-color: #f76d04;
+    background-color: #181411;
     color: white;
 }
 
