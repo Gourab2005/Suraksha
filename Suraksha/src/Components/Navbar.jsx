@@ -29,7 +29,7 @@ const Navbar = () => {
 			<section className='header'>
 				
 				<NavLink to='/' className='logo'>
-        <FontAwesomeIcon icon={faUserShield} beat/> Suraksha
+        <FontAwesomeIcon className="icon" icon={faUserShield} beat/> Suraksha
 				</NavLink>
 		
 				<nav className={`navbar ${menuActive ? "active" : ""}`}>
