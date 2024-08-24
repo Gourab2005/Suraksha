@@ -5,33 +5,38 @@
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    box-shadow: 0 4px 8px rgba(255, 252, 252, 0.1); 
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #4A0072; /* Slightly softer purple */
+    background-color: #843720; 
 }
 
 .header .logo {
-    color: #FFF; /* Bright white for better contrast */
+    color: #d8d8d8; 
     font-size: 2rem;
     font-weight: bold;
+    margin-right: 2rem;
+}
+
+.header .logo .icon{
+    margin-right: .5rem;
 }
 
 .header .navbar a {
-    font-size: 1.2rem; /* Reduced font size */
-    color: #FFF;
+    font-size: 1.2rem; 
+    color: #fffafa;
     margin-left: 2rem;
     transition: color 0.3s ease-in-out;
 }
 
 .header .navbar a:hover {
-    color: #B2FF59; /* Light green accent on hover */
+    color: #B2FF59; 
 }
 
 #menu-btn {
-    font-size: 2.2rem; /* Slightly reduced button size */
+    font-size: 2.2rem; 
     border-radius: 0.5rem;
     background: #FFF;
     color: #4A0072;
@@ -41,10 +46,9 @@
     border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 @media(max-width: 991px) {
     html {
-        font-size: 85%; /* Adjusted base font size for better scaling */
+        font-size: 85%; 
     }
 
     .header {
@@ -54,6 +58,7 @@
     .section {
         padding: 2rem;
     }
+    
 }
 
 @media(max-width: 768px) {
@@ -68,7 +73,7 @@
         border-radius: 0.5rem;
         width: 25rem;
         border: none;
-        background: #6A1B9A; /* Deep purple background */
+        background: #443c49; 
         transform: scale(0);
         opacity: 0;
         transform-origin: top right;
@@ -81,7 +86,7 @@
     }
 
     .header .navbar a {
-        font-size: 1.4rem; /* Reduced font size for mobile view */
+        font-size: 1.4rem; 
         display: block;
         margin: 1.5rem;
         color: #FFF;
@@ -90,7 +95,7 @@
 
 @media(max-width: 450px) {
     html {
-        font-size: 75%; /* Further reduced base font size */
+        font-size: 75%; 
     }
 
     .header {
@@ -98,15 +103,15 @@
     }
 
     .header .logo {
-        font-size: 1.6rem; /* Reduced logo font size */
+        font-size: 1.6rem; 
     }
 
     .header .navbar a {
-        font-size: 1.3rem; /* Smaller font size for smallest screens */
+        font-size: 1.3rem; 
         margin: 1rem;
     }
 
     #menu-btn {
-        font-size: 1.8rem; /* Smaller menu button size */
+        font-size: 1.8rem; 
     }
 }

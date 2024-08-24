@@ -3,7 +3,11 @@ import { account } from "../appwrite/appwriteConfig";
 import DatabaseService from "../appwrite/databases1";
 import { databaseId, reportId } from "../appwrite/databases";
 import { ID } from "appwrite";
+<<<<<<< HEAD
 import MapComponent from "../Components/MapComponent";
+=======
+import "./Loggedin.css";
+>>>>>>> 2ceb3c89831084d2b4a5223131987874233c4bce
 
 function LoggedInPage() {
   const [problems, setProblems] = useState([]);
@@ -17,6 +21,10 @@ function LoggedInPage() {
   useEffect(() => {
     const fetchUserAndProblems = async () => {
       try {
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 2ceb3c89831084d2b4a5223131987874233c4bce
         const userResponse = await account.get();
         setUser(userResponse);
 
@@ -26,6 +34,7 @@ function LoggedInPage() {
         );
         setProblems(problemsResponse.documents);
 
+<<<<<<< HEAD
         if (count < problemsResponse.documents.length) {
           const location = problemsResponse.documents[problemsResponse.documents.length - 1].Location;
           setRecentLoc(location);
@@ -33,6 +42,8 @@ function LoggedInPage() {
           setCount(problemsResponse.documents.length);
         }
 
+=======
+>>>>>>> 2ceb3c89831084d2b4a5223131987874233c4bce
         const userProblems = problemsResponse.documents.filter(
           (problem) =>
             problem.username === userResponse.name &&
@@ -49,7 +60,36 @@ function LoggedInPage() {
     const intervalId = setInterval(fetchUserAndProblems, 5000);
 
     return () => clearInterval(intervalId);
+<<<<<<< HEAD
   }, [count]);
+=======
+  }, []);
+
+  const getLocation = () => {
+    return new Promise((resolve, reject) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            setLocation({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+            });
+            setError(null); 
+            resolve(position); 
+          },
+          (err) => {
+            setError(err.message);
+            reject(err); 
+          }
+        );
+      } else {
+        const errorMessage = "Geolocation is not supported by this browser.";
+        setError(errorMessage);
+        reject(new Error(errorMessage));
+      }
+    });
+  };
+>>>>>>> 2ceb3c89831084d2b4a5223131987874233c4bce
 
   const handleClick = async (e) => {
     e.preventDefault();

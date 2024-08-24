@@ -24,7 +24,6 @@ function Signup() {
                 { Email, username, password, phone }
             );
 
-            // Step 3: Redirect to the log-in page
             window.location.href = '/login';
         } catch (err) {
             setError(err.message);
