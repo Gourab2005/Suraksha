@@ -1,23 +1,47 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import "./Navbar.css"
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import "./Navbar.css";
+
 const Navbar = () => {
-  return (
-    <div>
-        <section className="header">
-        <NavLink href="#" className="logo"> </NavLink>
+    const [menuActive, setMenuActive] = useState(false);
 
-        <nav className="navbar">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/Contact">Contact</NavLink>
-        </nav>
+    const toggleMenu = () => {
+        setMenuActive(!menuActive);
+    };
 
-        <div id="menu-btn" className="fas fa-bars"></div>
+    const handleScroll = () => {
+        if (menuActive) {
+            setMenuActive(false);
+        }
+    };
 
-    </section>
-    </div>
-  )
+    // Use useEffect to add the scroll event listener
+    React.useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [menuActive]);
+
+    return (
+        <div>
+            <section className="header">
+                <NavLink to="/" className="logo">Suraksha</NavLink>
+
+                <nav className={`navbar ${menuActive ? 'active' : ''}`}>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/contact">Contact</NavLink>
+                </nav>
+
+                <div
+                    id="menu-btn"
+                    className={`fas fa-bars ${menuActive ? 'fa-times' : ''}`}
+                    onClick={toggleMenu}
+                ></div>
+            </section>
+        </div>
+    );
 }
 
-export default Navbar
+export default Navbar;
