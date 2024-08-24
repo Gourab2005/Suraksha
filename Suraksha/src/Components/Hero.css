@@ -24,12 +24,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* More subtle dimming effect */
+    background: rgba(0, 0, 0, 0.5); 
     z-index: 1;
 }
 
 .Hero .title {
-    padding-top: 5rem; /* Adjusted padding */
+    padding-top: 5rem; 
     font-size: 2.5rem;
     font-weight: bold;
 }
@@ -67,7 +67,7 @@
 }
 
 .Hero .btn:hover {
-    background-color: #3700b3; /* Darker shade on hover */
+    background-color: #3700b3;
 }
 
 @media (max-width: 768px) {

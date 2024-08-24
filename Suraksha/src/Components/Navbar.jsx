@@ -17,7 +17,6 @@ const Navbar = () => {
 		}
 	};
 
-	// Use useEffect to add the scroll event listener
 	React.useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
 		return () => {
@@ -30,9 +29,9 @@ const Navbar = () => {
 			<section className='header'>
 				
 				<NavLink to='/' className='logo'>
-        <FontAwesomeIcon icon={faUserShield} /> Suraksha
+        <FontAwesomeIcon icon={faUserShield} beat/> Suraksha
 				</NavLink>
-
+		
 				<nav className={`navbar ${menuActive ? "active" : ""}`}>
 					<NavLink to='/'>Home</NavLink>
 					<NavLink to='/about'>About</NavLink>
