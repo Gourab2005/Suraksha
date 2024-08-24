@@ -1,0 +1,135 @@
+/* ConnectorForm.css */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    background: url('../assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+  
+  .form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .form-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+  }
+  
+  .connector-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #34495e;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input[type="text"]:focus,
+  textarea:focus {
+    border-color: #2980b9;
+    background-color: #ffffff;
+    outline: none;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .radio-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .radio-group label {
+    font-size: 1rem;
+    color: #34495e;
+  }
+  
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .submit-button:hover {
+    background-color: #2980b9;
+  }
+  
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 15px;
+    }
+  
+    .form-title {
+      font-size: 1.5rem;
+    }
+  
+    .submit-button {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-container {
+      padding: 10px;
+    }
+  
+    .form-title {
+      font-size: 1.3rem;
+    }
+  
+    .submit-button {
+      padding: 8px 15px;
+      font-size: 0.8rem;
+    }
+  }
+  
