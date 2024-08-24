@@ -25,7 +25,7 @@ function AdminDashboard() {
                 console.log(count);
                 if (notificationsEnabled && response.total > count) {
                     
-                    alert("Audio Played");
+                    //alert("Audio Played");
                     audioObj.play()
                         .then(() => {
                             console.log("Audio played");

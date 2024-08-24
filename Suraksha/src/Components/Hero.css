@@ -32,6 +32,8 @@
     padding-top: 5rem; 
     font-size: 2.5rem;
     font-weight: bold;
+    position: relative;
+    z-index: 5;
 }
 
 .Hero .para {
@@ -39,7 +41,8 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem;
-    z-index: 2; 
+    z-index: 2;
+    color: rgba(246, 230, 214, 0.755);
 }
 
 .Hero .buttons {
@@ -59,11 +62,11 @@
 }
 
 .Hero .login-btn {
-    background-color: #6200ea;
+    background-color: #f76d04;
 }
 
 .Hero .signup-btn {
-    background-color: #dada03;
+    background-color: #fe2200;
 }
 
 .Hero .btn:hover {
