@@ -3,6 +3,7 @@ import { account } from "../appwrite/appwriteConfig";
 import DatabaseService from "../appwrite/databases1";
 import { databaseId, reportId } from "../appwrite/databases";
 import { ID } from "appwrite";
+import "./Loggedin.css";
 
 function LoggedInPage() {
   const [problems, setProblems] = useState([]);
