@@ -10,7 +10,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      await account.deleteSession("current");
+    //   await account.deleteSessions();
     //   console.log("Previous session deleted");
       const response = await account.createEmailPasswordSession(
         email,
