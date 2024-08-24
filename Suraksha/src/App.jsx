@@ -5,6 +5,8 @@ import Loggedin from './Pages/Loggedin'
 import Admindashboard from './Pages/Admindashboard'
 import Login from './Pages/Login'
 import Signup from './Pages/signup'
+import AboutSection from './Pages/About'
+import Navbar from './Components/Navbar'
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -13,19 +15,23 @@ const App = () => {
     },
     {
       path: "/login",
-      element:<Login/>,
+      element:<><Navbar/><Login/></>,
     },
     {
         path: "/signup",
-        element: <Signup />
+        element: <><Navbar/><Signup/></>,
     },
     {
       path: "/loggedin",
-      element:<Loggedin/>,
+      element:<><Navbar/><Loggedin/></>,
     },
     {
       path: "/admindashboard",
-      element:<Admindashboard/>,
+      element:<><Navbar/><Admindashboard/></>,
+    },
+    {
+      path: "/about",
+      element:<><Navbar/><AboutSection/></>,
     },
   ]);
   return (
