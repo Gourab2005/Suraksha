@@ -1,47 +1,50 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons"; // Example icon
 
 const Navbar = () => {
-    const [menuActive, setMenuActive] = useState(false);
+	const [menuActive, setMenuActive] = useState(false);
 
-    const toggleMenu = () => {
-        setMenuActive(!menuActive);
-    };
+	const toggleMenu = () => {
+		setMenuActive(!menuActive);
+	};
 
-    const handleScroll = () => {
-        if (menuActive) {
-            setMenuActive(false);
-        }
-    };
+	const handleScroll = () => {
+		if (menuActive) {
+			setMenuActive(false);
+		}
+	};
 
-    // Use useEffect to add the scroll event listener
-    React.useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [menuActive]);
+	// Use useEffect to add the scroll event listener
+	React.useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, [menuActive]);
 
-    return (
-        <div>
-            <section className="header">
-                <NavLink to="/" className="logo">Suraksha</NavLink>
+	return (
+		<div>
+			<section className='header'>
+				<NavLink to='/' className='logo'>
+					<i class='fa-solid fa-user-shield'></i> Suraksha
+				</NavLink>
 
-                <nav className={`navbar ${menuActive ? 'active' : ''}`}>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="/contact">Contact</NavLink>
-                </nav>
+				<nav className={`navbar ${menuActive ? "active" : ""}`}>
+					<NavLink to='/'>Home</NavLink>
+					<NavLink to='/about'>About</NavLink>
+					<NavLink to='/contact'>Contact</NavLink>
+				</nav>
 
-                <div
-                    id="menu-btn"
-                    className={`fas fa-bars ${menuActive ? 'fa-times' : ''}`}
-                    onClick={toggleMenu}
-                ></div>
-            </section>
-        </div>
-    );
-}
+				<div
+					id='menu-btn'
+					className={`fas fa-bars ${menuActive ? "fa-times" : ""}`}
+					onClick={toggleMenu}></div>
+			</section>
+		</div>
+	);
+};
 
 export default Navbar;
