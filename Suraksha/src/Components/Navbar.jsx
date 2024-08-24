@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons"; // Example icon
+import { faUserShield } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
 	const [menuActive, setMenuActive] = useState(false);
@@ -28,8 +28,9 @@ const Navbar = () => {
 	return (
 		<div>
 			<section className='header'>
+				
 				<NavLink to='/' className='logo'>
-					<i class='fa-solid fa-user-shield'></i> Suraksha
+        <FontAwesomeIcon icon={faUserShield} /> Suraksha
 				</NavLink>
 
 				<nav className={`navbar ${menuActive ? "active" : ""}`}>
