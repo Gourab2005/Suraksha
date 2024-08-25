@@ -1,11 +1,7 @@
 
 body {
     font-family: Arial, sans-serif;
-<<<<<<< HEAD
-    background-color: #ffffff;
-=======
     background-color: #f8f4ec;
->>>>>>> a9d325e5bb9f8271003da109be5971fb5eca2862
     margin: 0;
     padding: 0;
 }
@@ -53,7 +49,7 @@ body {
 }
 
 h2 {
-    color: #333;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -80,10 +76,10 @@ button.circle-container{
     position: relative;
     width: 100px;
     height: 100px;
-    border: 2px solid green;
+    border: 2px solid rgb(128, 0, 0);
     border-radius: 50%;
     background-color: black;
-    color: green;
+    color: rgb(128, 0, 0);
     font-weight: bolder;
     overflow: visible;
     margin: 50px auto;
@@ -117,7 +113,7 @@ button.circle-container{
   
   .circle:nth-child(1) {
     animation-delay: 0s;
-    background-color: green;
+    background-color: rgb(128, 0, 0);
   }
   
   .circle:nth-child(2) {
@@ -127,7 +123,7 @@ button.circle-container{
   
   .circle:nth-child(3) {
     animation-delay: 1s;
-    background-color: green;
+    background-color: rgb(128, 0, 0);
     /* border: 3px solid black; */
   }
   
@@ -144,7 +140,7 @@ button.circle-container{
     z-index: 1000;
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(1);
-    background-color: green;
+    background-color: rgb(255, 0, 0);
     color: black;
     text-align: center;
     align-content: center;

@@ -193,7 +193,10 @@ function LoggedInPage() {
             ))}
           </tbody>
         </table>
+
       </div>
+      <h2>Unsafe Zones</h2>
+
       {recentLoc && (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <MapComponent mapLink={recentLoc} />
