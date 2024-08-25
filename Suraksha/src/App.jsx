@@ -8,7 +8,6 @@ import Signup from './Pages/signup'
 import AboutSection from './Pages/About'
 import Navbar from './Components/Navbar'
 import ContactSection from './Pages/Contact'
-import ResetPassword from './Components/ResetPassword'
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -39,10 +38,7 @@ const App = () => {
       path: "/contact",
       element:<><Navbar/><ContactSection/></>,
     },
-    {
-      path: "/reset-password",
-      element:<><Navbar/><ResetPassword/></>,
-    },
+
   ]);
   return (
     <div>
