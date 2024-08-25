@@ -35,7 +35,8 @@ const Navbar = () => {
 				<nav className={`navbar ${menuActive ? "active" : ""}`}>
 					<NavLink to='/'>Home</NavLink>
 					<NavLink to='https://t.me/+q1eqjkLLcS83ZDA1'>Join Community</NavLink>
-					<NavLink to='/'>Home</NavLink>
+					<NavLink to='/about'>About Us</NavLink>
+					<NavLink to='/contact'>Contact</NavLink>
 					<NavLink to='/login'>Login</NavLink>
 					<NavLink to='/signup'>Signup</NavLink>
 				</nav>
