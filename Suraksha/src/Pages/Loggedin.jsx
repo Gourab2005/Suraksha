@@ -146,6 +146,21 @@ function LoggedInPage() {
         </button>
       </div>
       {error && <p>Error: {error}</p>}
+
+
+      <div className="map-con">
+      <div className="box1">
+      <h2>Unsafe Zones</h2>
+      </div>
+      <div className="box2">
+      {recentLoc && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <MapComponent mapLink={recentLoc} />
+        </div>
+      )}
+      </div>
+      </div>
+
       <div className="table-con">
         <div className="box1">
           <h2>Emergency Panel</h2>
@@ -225,7 +240,7 @@ function LoggedInPage() {
           </table>
         </div>
       </div>
-      <div className="map-con">
+      {/* <div className="map-con">
       <div className="box1">
       <h2>Unsafe Zones</h2>
       </div>
@@ -236,7 +251,7 @@ function LoggedInPage() {
         </div>
       )}
       </div>
-      </div>
+      </div> */}
       <div className="report-container">
         <div className="box1">
           <h2 id="reportheader">
