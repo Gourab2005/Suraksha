@@ -12,10 +12,8 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
-- [Architecture](#architecture)
 - [Challenges](#challenges)
 - [Future Enhancements](#future-enhancements)
-- [Contributors](#contributors)
 - [License](#license)
 
 ---
