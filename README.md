@@ -37,10 +37,9 @@ Creating an impressive README for your Women's Safety Reporting System, "Suraksh
 ## Tech Stack
 
 - **Frontend**: React.js, Leaflet.js for mapping
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB, Appwrite
-- **Blockchain**: Solana for decentralization
-- **Deployment**: Docker, Kubernetes
+- **Backend**: Appwrite
+- **Database**: Appwrite
+- **Deployment**: Vercel
 - **Other Tools**: Git, GitHub, Visual Studio Code
 
 ## Installation
