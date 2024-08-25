@@ -7,6 +7,7 @@ import Login from './Pages/Login'
 import Signup from './Pages/signup'
 import AboutSection from './Pages/About'
 import Navbar from './Components/Navbar'
+import ContactSection from './Pages/Contact'
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const App = () => {
     {
       path: "/about",
       element:<><Navbar/><AboutSection/></>,
+    },
+    {
+      path: "/contact",
+      element:<><Navbar/><ContactSection/></>,
     },
   ]);
   return (
