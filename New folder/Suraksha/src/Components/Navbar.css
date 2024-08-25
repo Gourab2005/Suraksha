@@ -1,0 +1,117 @@
+.header {
+    font-family: "Akaya Kanadaka", system-ui;
+    padding: 1.5rem 5%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 8px rgba(255, 252, 252, 0.1); 
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #843720; 
+}
+
+.header .logo {
+    color: #d8d8d8; 
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 2rem;
+}
+
+.header .logo .icon{
+    margin-right: .5rem;
+}
+
+.header .navbar a {
+    font-size: 1.2rem; 
+    color: #fffafa;
+    margin-left: 2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.header .navbar a:hover {
+    color: #B2FF59; 
+}
+
+#menu-btn {
+    font-size: 2.2rem; 
+    border-radius: 0.5rem;
+    background: #FFF;
+    color: #4A0072;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    display: none;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+@media(max-width: 991px) {
+    html {
+        font-size: 85%; 
+    }
+
+    .header {
+        padding: 1.5rem 3%;
+    }
+
+    .section {
+        padding: 2rem;
+    }
+    
+}
+
+@media(max-width: 768px) {
+    #menu-btn {
+        display: initial;
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: 100%;
+        right: 2rem;
+        border-radius: 0.5rem;
+        width: 25rem;
+        border: none;
+        background: #443c49; 
+        transform: scale(0);
+        opacity: 0;
+        transform-origin: top right;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .header .navbar.active {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .header .navbar a {
+        font-size: 1.4rem; 
+        display: block;
+        margin: 1.5rem;
+        color: #FFF;
+    }
+}
+
+@media(max-width: 450px) {
+    html {
+        font-size: 75%; 
+    }
+
+    .header {
+        padding: 1.5rem;
+    }
+
+    .header .logo {
+        font-size: 1.6rem; 
+    }
+
+    .header .navbar a {
+        font-size: 1.3rem; 
+        margin: 1rem;
+    }
+
+    #menu-btn {
+        font-size: 1.8rem; 
+    }
+}
