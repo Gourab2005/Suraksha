@@ -1,11 +1,6 @@
-
 body {
     font-family: Arial, sans-serif;
-<<<<<<< HEAD
-    background-color: #ffffff;
-=======
-    background-color: #f8f4ec;
->>>>>>> a9d325e5bb9f8271003da109be5971fb5eca2862
+    background-color: #ffffff; /* White background */
     margin: 0;
     padding: 0;
 }
@@ -13,7 +8,7 @@ body {
 .navbar {
     background-color: #843720;
     padding: 10px;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     text-align: center;
     top: 0;
     z-index: 1000;
@@ -37,7 +32,7 @@ body {
 }
 
 .navbar a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s ease;
@@ -49,7 +44,7 @@ body {
 
 .container {
     width: 90%;
-    margin: 80px auto 20px; 
+    margin: 80px auto 20px;
 }
 
 h2 {
@@ -67,7 +62,7 @@ p {
 button {
     display: block;
     background-color: #fe2200;
-    color: white;
+    color: #ffffff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -76,18 +71,20 @@ button {
     margin: 20px auto;
     transition: background-color 0.3s ease;
 }
-button.circle-container{
+
+button.circle-container {
     position: relative;
     width: 100px;
     height: 100px;
     border: 2px solid green;
     border-radius: 50%;
-    background-color: black;
+    background-color: #000000;
     color: green;
     font-weight: bolder;
     overflow: visible;
     margin: 50px auto;
 }
+
 .circle-container .circle {
     position: absolute;
     width: 100px;
@@ -99,43 +96,44 @@ button.circle-container{
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
     animation: circleAnimation 2s infinite;
-  }
-  @keyframes circleAnimation {
+}
+
+@keyframes circleAnimation {
     0% {
-      transform: translate(-50%, -50%) scale(0);
-      opacity: 1;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
     }
     50% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
     }
     100% {
-      transform: translate(-50%, -50%) scale(1.5);
-      opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
     }
-  }
-  
-  .circle:nth-child(1) {
+}
+
+.circle:nth-child(1) {
     animation-delay: 0s;
     background-color: green;
-  }
-  
-  .circle:nth-child(2) {
+}
+
+.circle:nth-child(2) {
     animation-delay: 0.5s;
     background-color: green;
-  }
-  
-  .circle:nth-child(3) {
+}
+
+.circle:nth-child(3) {
     animation-delay: 1s;
     background-color: green;
-    /* border: 3px solid black; */
-  }
-  
-  .circle:nth-child(4) {
+}
+
+.circle:nth-child(4) {
     animation-delay: 1.5s;
     background-color: green;
-  }
-  div.help{
+}
+
+div.help {
     position: absolute;
     width: 100px;
     height: 100px;
@@ -148,7 +146,8 @@ button.circle-container{
     color: black;
     text-align: center;
     align-content: center;
-  }
+}
+
 button:hover {
     background-color: #f76d04;
 }
@@ -158,11 +157,12 @@ button:hover {
     border-collapse: collapse;
     margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* White background */
 }
 
 .data-table thead {
     background-color: #fe2200;
-    color: rgb(48, 48, 48);
+    color: #303030;
 }
 
 .data-table th, .data-table td {
@@ -177,12 +177,12 @@ button:hover {
 }
 
 .data-table tbody tr:nth-child(even) {
-    background-color: #1a1a1a;
+    background-color: #ffffff; /* White background */
 }
 
 .data-table tbody tr:hover {
     background-color: #f76d04;
-    color: rgb(0, 0, 0);
+    color: #000000;
 }
 
 .data-table td {
@@ -198,7 +198,7 @@ p.error {
     .navbar ul {
         flex-direction: column;
     }
-    
+
     .navbar li {
         margin: 10px 0;
     }
