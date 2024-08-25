@@ -112,7 +112,6 @@
 
 - **Mobile App Development**: Extend the platform's accessibility through a mobile app.
 - **AI-Powered Risk Assessment**: Implement AI models to predict and alert users about high-risk areas.
-- **Integration with Local Authorities**: Collaborate with local law enforcement for quicker response to reports.
 - **Blockchain Integration**: Store each report on the blockchain to ensure that no report can be deleted or tampered with, providing a tamper-proof and transparent system.
 - **Offline Location Sharing**: Implement offline location-sharing features so users can send their location even without an internet connection.
 - **Hardware Panic Button**: Integrate a hardware button, allowing users to seek help without needing to unlock or open their phone.
