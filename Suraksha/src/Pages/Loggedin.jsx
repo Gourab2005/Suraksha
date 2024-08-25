@@ -29,7 +29,6 @@ function Login() {
   };
 
   return (
-<<<<<<< HEAD
     <div>
       <div>
         <h2>Welcome, {user.name}</h2>
@@ -123,30 +122,6 @@ function Login() {
           <MapComponent mapLink={recentLoc} />
         </div>
       )}
-=======
-    <div className={styles.container}>
-      <h2 className={styles.heading}>Login</h2>
-      <form onSubmit={handleLogin} className={styles.form}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-          className={styles.input}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-          className={styles.input}
-        />
-        <button type="submit" className={styles.button}>Login</button>
-      </form>
-      {error && <p className={styles.error}>Error: {error}</p>}
->>>>>>> 46ab18b924e6b9bcc2e0767903e72341a9edcab1
     </div>
   );
 }
