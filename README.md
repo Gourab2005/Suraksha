@@ -1,10 +1,8 @@
-Creating an impressive README for your Women's Safety Reporting System, "Suraksha," involves a clear and organized structure that highlights the purpose, features, technology stack, installation instructions, and more. Here’s a structured template you can use:
-
----
-
 # Suraksha - Women's Safety Reporting System
 
-![Suraksha Logo](path_to_your_logo_image)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f00ae076-82af-4c04-8f48-4081eaec50fd" alt="logo-suraksha">
+</p>
 
 ## Table of Contents
 
@@ -32,7 +30,6 @@ Creating an impressive README for your Women's Safety Reporting System, "Suraksh
 - **Real-time Location Tagging**: Reports can be tagged with precise geolocation data.
 - **Community Alerts**: Users are notified about safety concerns in their vicinity.
 - **Data Analytics**: Admins can view reports and generate analytics to identify hotspots and recurring issues.
-- **Secure and Decentralized**: Leveraging blockchain technology to ensure data integrity and security.
 
 ## Tech Stack
 
@@ -46,10 +43,8 @@ Creating an impressive README for your Women's Safety Reporting System, "Suraksh
 
 ### Prerequisites
 
-- Node.js
 - npm or Yarn
-- MongoDB
-- Docker (for deployment)
+- Appwrite
 
 ### Steps
 
@@ -95,41 +90,32 @@ Creating an impressive README for your Women's Safety Reporting System, "Suraksh
 ## Screenshots
 
 ### 1. Home Page
-![Home Page](path_to_homepage_screenshot)
+![msedge_c9MbQ7RMLg](https://github.com/user-attachments/assets/014c9cf9-fcc7-4639-a47c-a46c1d426b24)
 
 ### 2. Report Incident Page
 ![Report Incident Page](path_to_report_page_screenshot)
 
 ### 3. Admin Dashboard
-![Admin Dashboard](path_to_dashboard_screenshot)
+![msedge_ruZWQACfaY](https://github.com/user-attachments/assets/d367aaa6-dce3-4046-9b9e-4de834222e9c)
 
-## Architecture
+### 4. User Dashboard
+![msedge_qkOPIQIVzw](https://github.com/user-attachments/assets/f14b23a9-4c62-4b31-b984-4bb0b2d9ebf4)
 
-Suraksha follows a modern, modular architecture, making it scalable and maintainable:
-
-- **Frontend**: React.js handles the UI, with Leaflet.js for interactive maps.
-- **Backend**: Node.js with Express.js serves the API, connecting with MongoDB for data storage.
-- **Blockchain Layer**: Solana ensures that sensitive data remains tamper-proof.
-
-![Architecture Diagram](path_to_architecture_diagram)
 
 ## Challenges
 
 - **Real-time Geolocation Handling**: Integrating accurate geolocation for real-time reporting.
-- **Blockchain Integration**: Ensuring seamless integration with Solana for data security.
 - **Scalability**: Designing the system to handle a growing number of users and reports.
 
 ## Future Enhancements
 
 - **Mobile App Development**: Extend the platform's accessibility through a mobile app.
 - **AI-Powered Risk Assessment**: Implement AI models to predict and alert users about high-risk areas.
-- **Multilingual Support**: Add support for multiple languages to reach a broader audience.
 - **Integration with Local Authorities**: Collaborate with local law enforcement for quicker response to reports.
-
-## Contributors
-
-- **[Your Name]** - Project Lead
-- **[Other Team Members]** - Contributors
+- **Blockchain Integration**: Store each report on the blockchain to ensure that no report can be deleted or tampered with, providing a tamper-proof and transparent system.
+- **Offline Location Sharing**: Implement offline location-sharing features so users can send their location even without an internet connection.
+- **Hardware Panic Button**: Integrate a hardware button, allowing users to seek help without needing to unlock or open their phone.
+- **Multilingual Support**: Add support for multiple languages to reach a broader audience.
 
 ## License
 
