@@ -4,7 +4,7 @@ import DatabaseService from "../appwrite/databases1";
 import { databaseId, reportId } from "../appwrite/databases";
 import { ID } from "appwrite";
 import MapComponent from "../Components/MapComponent";
-import "./Loggedin.css"
+import './Loggedin.css';
 
 function LoggedInPage() {
   const [problems, setProblems] = useState([]);
@@ -28,7 +28,9 @@ function LoggedInPage() {
         setProblems(problemsResponse.documents);
 
         if (count < problemsResponse.documents.length) {
-          const location = problemsResponse.documents[problemsResponse.documents.length - 1].Location;
+          const location =
+            problemsResponse.documents[problemsResponse.documents.length - 1]
+              .Location;
           setRecentLoc(location);
           console.log(location);
           setCount(problemsResponse.documents.length);
@@ -56,7 +58,7 @@ function LoggedInPage() {
     e.preventDefault();
 
     try {
-      const position = await getLocation(); 
+      const position = await getLocation();
       const email = user.email;
       const username = user.name;
       const phone = 8116693879;
@@ -86,7 +88,7 @@ function LoggedInPage() {
               latitude: position.coords.latitude,
               longitude: position.coords.longitude,
             });
-            setError(null); 
+            setError(null);
             resolve(position);
           },
           (err) => {
@@ -112,7 +114,15 @@ function LoggedInPage() {
         <h2>Welcome, {user.name}</h2>
         <p>Email: {user.email}</p>
       </div>
-      <button onClick={handleClick}>GET HELP</button>
+      
+      <button className="circle-container" onClick={handleClick}>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="help">HELP</div>
+      </button>
+      
       {error && <p>Error: {error}</p>}
       <div>
         <h2>Emergency Panel</h2>
@@ -136,7 +146,11 @@ function LoggedInPage() {
                 <td>Anonymous</td>
                 <td>XXXXXXXX</td>
                 <td>{problem.phone}</td>
-                <td><a href={problem.Location} target="_blank"><button>See Location</button></a></td>
+                <td>
+                  <a href={problem.Location} target="_blank">
+                    <button>See Location</button>
+                  </a>
+                </td>
                 <td>{problem.Type}</td>
                 <td>{problem.Problem}</td>
                 <td>{problem.Status}</td>
@@ -167,7 +181,11 @@ function LoggedInPage() {
                 <td>{myProblem.username}</td>
                 <td>{myProblem.Email}</td>
                 <td>{myProblem.phone}</td>
-                <td><a href={myProblem.Location}><button>See Your Location</button></a></td>
+                <td>
+                  <a href={myProblem.Location}>
+                    <button>See Your Location</button>
+                  </a>
+                </td>
                 <td>{myProblem.Type}</td>
                 <td>{myProblem.Problem}</td>
                 <td>{myProblem.Status}</td>
@@ -177,7 +195,7 @@ function LoggedInPage() {
         </table>
       </div>
       {recentLoc && (
-        <div style={{display: "flex", justifyContent: "center"}}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <MapComponent mapLink={recentLoc} />
         </div>
       )}

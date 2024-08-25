@@ -5,7 +5,7 @@ import './CommunitySupport.css';
 
 const CommunitySupport = () => {
   return (
-    <div className="community-support-container">
+    <div className="community-support-container" id='Community'>
       <h2 className="community-support-title">Community Support</h2>
       <p className="community-support-description">
         Our platform thrives on community engagement and solidarity.
@@ -31,7 +31,7 @@ const CommunitySupport = () => {
           <p className="support-card-description">
             Explore community chat, report wall, and graffiti showcasing user resilience.
           </p>
-          <Link to="/community-features">
+          <Link to="https://t.me/+q1eqjkLLcS83ZDA1">
             <button className="support-card-button">Join Chat</button>
           </Link>
         </div>
