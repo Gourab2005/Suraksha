@@ -1,114 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { account } from "../appwrite/appwriteConfig";
-import DatabaseService from "../appwrite/databases1";
-import { databaseId, reportId } from "../appwrite/databases";
-import { ID } from "appwrite";
-import MapComponent from "../Components/MapComponent";
-import './Loggedin.css';
+import styles from "./Login.module.css"; 
 
-function LoggedInPage() {
-  const [problems, setProblems] = useState([]);
-  const [user, setUser] = useState(null);
-  const [location, setLocation] = useState({ latitude: null, longitude: null });
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [myProblems, setMyProblems] = useState([]);
-  const [count, setCount] = useState(0);
-  const [recentLoc, setRecentLoc] = useState(null);
 
-  useEffect(() => {
-    const fetchUserAndProblems = async () => {
-      try {
-        const userResponse = await account.get();
-        setUser(userResponse);
-
-        const problemsResponse = await DatabaseService.listDocuments(
-          databaseId,
-          reportId
-        );
-        setProblems(problemsResponse.documents);
-
-        if (count < problemsResponse.documents.length) {
-          const location =
-            problemsResponse.documents[problemsResponse.documents.length - 1]
-              .Location;
-          setRecentLoc(location);
-          console.log(location);
-          setCount(problemsResponse.documents.length);
-        }
-
-        const userProblems = problemsResponse.documents.filter(
-          (problem) =>
-            problem.username === userResponse.name &&
-            problem.Email === userResponse.email
-        );
-        setMyProblems(userProblems);
-      } catch (err) {
-        console.error("Error fetching user or problems:", err);
-      }
-    };
-
-    fetchUserAndProblems();
-
-    const intervalId = setInterval(fetchUserAndProblems, 5000);
-
-    return () => clearInterval(intervalId);
-  }, [count]);
-
-  const handleClick = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const position = await getLocation();
-      const email = user.email;
-      const username = user.name;
-      const phone = 8116693879;
-      const loc = `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`;
-      const problem = "EMERGENCY";
+      const session = await account.get().catch(() => null);
 
-      await DatabaseService.createDocument(databaseId, reportId, ID.unique(), {
-        username: username,
-        Email: email,
-        phone: phone,
-        Problem: problem,
-        Location: loc,
-      });
-
-      console.log("Document created successfully");
+      if (session) {
+        await account.deleteSessions();
+      }
+      
+      const response = await account.createEmailPasswordSession(
+        email,
+        password
+      );
+      console.log(response); 
+      window.location.href = '/loggedin'; 
     } catch (err) {
-      console.error("Error creating document:", err);
+      setError(err.message);
     }
   };
 
-  const getLocation = () => {
-    return new Promise((resolve, reject) => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            setLocation({
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
-            });
-            setError(null);
-            resolve(position);
-          },
-          (err) => {
-            setError(err.message);
-            reject(err);
-          }
-        );
-      } else {
-        const errorMessage = "Geolocation is not supported by this browser.";
-        setError(errorMessage);
-        reject(new Error(errorMessage));
-      }
-    });
-  };
-
-  if (!user) {
-    return <p>Loading...</p>;
-  }
-
   return (
+<<<<<<< HEAD
     <div>
       <div>
         <h2>Welcome, {user.name}</h2>
@@ -202,8 +123,32 @@ function LoggedInPage() {
           <MapComponent mapLink={recentLoc} />
         </div>
       )}
+=======
+    <div className={styles.container}>
+      <h2 className={styles.heading}>Login</h2>
+      <form onSubmit={handleLogin} className={styles.form}>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+          className={styles.input}
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          required
+          className={styles.input}
+        />
+        <button type="submit" className={styles.button}>Login</button>
+      </form>
+      {error && <p className={styles.error}>Error: {error}</p>}
+>>>>>>> 46ab18b924e6b9bcc2e0767903e72341a9edcab1
     </div>
   );
 }
 
-export default LoggedInPage;
+export default Login;

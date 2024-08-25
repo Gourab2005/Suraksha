@@ -1,7 +1,8 @@
 .admin-dashboard {
     width: 90%;
-    margin: 20px auto;
+    margin: 10px auto;
     font-family: Arial, sans-serif;
+    background-color: white;
 }
 
 .admin-dashboard h2 {
@@ -9,7 +10,9 @@
     margin-bottom: 20px;
     color: #ffffff;
 }
-
+.data-table {
+    width: 100% !important;
+}
 button {
     background-color: #007bff;
     color: white;
