@@ -30,7 +30,7 @@ function Login() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>Login</h2>
+      <h2 className={styles.heading}>Log in</h2>
       <form onSubmit={handleLogin} className={styles.form}>
         <input
           type="email"
@@ -48,7 +48,7 @@ function Login() {
           required
           className={styles.input}
         />
-        <button type="submit" className={styles.button}>Login</button>
+        <button type="submit" className={styles.button}>Log in</button>
       </form>
       {error && <p className={styles.error}>Error: {error}</p>}
     </div>

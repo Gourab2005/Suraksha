@@ -127,13 +127,13 @@ button.circle-container{
   
   .circle:nth-child(3) {
     animation-delay: 1s;
-    background-color: green;
+    background-color: rgb(128, 0, 0);
     /* border: 3px solid black; */
   }
   
   .circle:nth-child(4) {
     animation-delay: 1.5s;
-    background-color: green;
+    background-color: red;
   }
   div.help{
     position: absolute;
@@ -144,7 +144,7 @@ button.circle-container{
     z-index: 1000;
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(1);
-    background-color: green;
+    background-color: red;
     color: black;
     text-align: center;
     align-content: center;
@@ -154,7 +154,7 @@ button:hover {
 }
 
 .data-table {
-    width: 70vw;
+    width: 100% !important;
     border-collapse: collapse;
     margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
