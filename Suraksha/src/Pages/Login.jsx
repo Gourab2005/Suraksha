@@ -43,7 +43,6 @@ function Login() {
 
   return (
     <div className={styles.container}>
-<<<<<<< HEAD
       <h2 className={styles.heading}>Log in</h2>
       <form onSubmit={handleLogin} className={styles.form}>
         <input
@@ -64,51 +63,6 @@ function Login() {
         />
         <button type="submit" className={styles.button}>Log in</button>
       </form>
-=======
-      <h2 className={styles.heading}>Login</h2>
-
-      {!isForgotPassword ? (
-        <form onSubmit={handleLogin} className={styles.form}>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            required
-            className={styles.input}
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            required
-            className={styles.input}
-          />
-          <button type="submit" className={styles.button}>Login</button>
-        </form>
-      ) : (
-        <form onSubmit={handleForgotPassword} className={styles.form}>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-            className={styles.input}
-          />
-          <button type="submit" className={styles.button}>Reset Password</button>
-        </form>
-      )}
-
-      <button
-        onClick={() => setIsForgotPassword(!isForgotPassword)}
-        className={styles.forgotPasswordButton}
-      >
-        {isForgotPassword ? "Back to Login" : "Forgot Password?"}
-      </button>
-
->>>>>>> d528dcb4d805986c3fdef19cefb21194b1199ef9
       {error && <p className={styles.error}>Error: {error}</p>}
     </div>
   );
