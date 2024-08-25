@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
 import { account } from "../appwrite/appwriteConfig";
 import DatabaseService from "../appwrite/databases1";
 import { databaseId, reportId } from "../appwrite/databases";
@@ -14,6 +15,7 @@ function LoggedInPage() {
   const [myProblems, setMyProblems] = useState([]);
   const [count, setCount] = useState(0);
   const [recentLoc, setRecentLoc] = useState(null);
+  const navigate = useNavigate(); // Using useNavigate hook
 
   useEffect(() => {
     const fetchUserAndProblems = async () => {
@@ -32,7 +34,6 @@ function LoggedInPage() {
             problemsResponse.documents[problemsResponse.documents.length - 1]
               .Location;
           setRecentLoc(location);
-          console.log(location);
           setCount(problemsResponse.documents.length);
         }
 
@@ -104,6 +105,15 @@ function LoggedInPage() {
     });
   };
 
+  const handleLogout = async () => {
+    try {
+      await account.deleteSession('current');
+      navigate('/'); // Redirect to the home page after logout
+    } catch (err) {
+      console.error("Error logging out:", err);
+    }
+  };
+
   if (!user) {
     return <p>Loading...</p>;
   }
@@ -113,6 +123,7 @@ function LoggedInPage() {
       <div>
         <h2>Welcome, {user.name}</h2>
         <p>Email: {user.email}</p>
+        <button onClick={handleLogout}>Logout</button>
       </div>
       
       <button className="circle-container" onClick={handleClick}>
